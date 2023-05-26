@@ -6,6 +6,8 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { useState, useEffect } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { addContact, removeContact } from 'Redux/ContactsSlice';
 
 const initialContacts = [
   { id: nanoid(), name: 'Rosie Simpson', number: '459-12-56' },
@@ -24,6 +26,8 @@ const getInitialContacts = () => {
 };
 
 export const App = () => {
+  // const dispatch = useDispatch();
+  // const contactList = useSelector(state => state.contacts);
   const [contacts, setContacts] = useState(getInitialContacts);
   const [filter, setfilter] = useState('');
 
@@ -32,6 +36,7 @@ export const App = () => {
   }, [contacts]);
 
   const userData = { contacts, filter };
+  // const userData = { contactList, filter };
 
   const formSubmitHandler = ({ name, number }) => {
     const contact = {
